@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './Calculator.css';
 
 function App() {
   const [num1, setNum1] = useState('');
@@ -21,8 +22,9 @@ function App() {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h2>React + FastAPI Calculator</h2>
+  <div className="calculator-container">
+    <h2>React + FastAPI Calculator</h2>
+    <div className="input-group">
       <input
         type="number"
         value={num1}
@@ -41,10 +43,11 @@ function App() {
         onChange={(e) => setNum2(e.target.value)}
         placeholder="Enter second number"
       />
-      <button onClick={calculate}>Calculate</button>
-      <h3>Result: {result}</h3>
     </div>
-  );
+    <button onClick={calculate}>Calculate</button>
+    <h3>Result: {result}</h3>
+  </div>
+);
 }
 
 export default App;
